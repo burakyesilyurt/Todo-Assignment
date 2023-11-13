@@ -11,21 +11,18 @@ class TodoListController extends PublicController
 {
     public function index()
     {
-
         $item = TodoModel::all();
         return $this->view->make("anomaly.module.todo::todo.index", compact("item"));
     }
     public function create(Request $request)
     {
         TodoModel::create($request->all());
-        $item = TodoModel::all();
-        return $this->view->make("anomaly.module.todo::todo.index", compact("item"));
+        return redirect()->route("todo::index");
     }
 
     public function delete($id)
     {
-        $item_to = TodoModel::find($id)->delete();
-        $item = TodoModel::all();
-        return $this->view->make("anomaly.module.todo::todo.index", compact("item"));
+        TodoModel::find($id)->delete();
+        return redirect()->route("todo::index");
     }
 }
