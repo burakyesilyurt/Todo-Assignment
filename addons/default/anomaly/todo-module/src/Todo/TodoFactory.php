@@ -1,6 +1,9 @@
-<?php namespace Anomaly\TodoModule\Todo;
+<?php
+
+namespace Anomaly\TodoModule\Todo;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 class TodoFactory extends Factory
 {
@@ -18,6 +21,9 @@ class TodoFactory extends Factory
      */
     public function definition()
     {
-        return [];
+        return [
+            "slug" => Arr::random(["slug 1", "slug 2", "slug 3"]),
+            "name" => Arr::random(["isim 1, isim 2, isim 3"]),
+        ];
     }
 }
