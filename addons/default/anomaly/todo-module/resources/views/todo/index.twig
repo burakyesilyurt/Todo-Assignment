@@ -1,0 +1,12 @@
+{% for todo in item %}
+{{ todo . name }}
+<form action="{{ route('todo::delete', {id:todo.id}) }}" method="POST">
+    <input type="submit" value="sil">
+</form>
+{% endfor %}
+
+<form action="{{ route('todo::create') }}" method="POST">
+    <input type="text" name="name" placeholder="isim">
+    <input type="text" name="slug" placeholder="slug">
+    <input type="submit" value="oluştur">
+</form>
