@@ -9,9 +9,13 @@ use Illuminate\Http\Request;
 
 class TodoListController extends PublicController
 {
-    public function index()
+    public function index(Request $request)
     {
-        $item = TodoModel::paginate(3);
+        if ($request->query('name')) {
+            $item = TodoModel::where('name', 'LIKE', '%' . $request->query('name') . '%')->get();
+        } else {
+            $item = TodoModel::paginate(3);
+        }
         return $this->view->make("anomaly.module.todo::todo.index", compact("item"));
     }
     public function create(Request $request)
