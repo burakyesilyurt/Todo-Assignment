@@ -1,6 +1,6 @@
-<ul style="display: flex; flex-direction: column;align-items: center">
+<ul style="display: flex; flex-direction: column;align-items: center;">
 {% for todo in item %}
-<div style="display: flex; gap: 10px">
+<div style="display: flex; gap: 10px;">
 <li>{{ todo . name }}</li>
 <form action="{{ route('todo::delete', {id:todo.id}) }}" method="POST">
     <input type="submit" value="sil">
@@ -19,3 +19,6 @@
 </form>
 </div>
 
+<div style="display: flex; justify-content: center;">
+{{item.links|raw}}
+</div>

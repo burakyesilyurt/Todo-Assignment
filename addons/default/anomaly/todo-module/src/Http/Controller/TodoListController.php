@@ -11,7 +11,7 @@ class TodoListController extends PublicController
 {
     public function index()
     {
-        $item = TodoModel::all();
+        $item = TodoModel::paginate(3);
         return $this->view->make("anomaly.module.todo::todo.index", compact("item"));
     }
     public function create(Request $request)
