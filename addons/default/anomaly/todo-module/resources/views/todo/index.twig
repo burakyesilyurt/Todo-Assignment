@@ -17,8 +17,6 @@
 <form action="{{ route('todo::create') }}" method="POST">
     <input style="margin-bottom: 25px" type="text" name="name" placeholder="isim">
     <br>
-    <input style="margin-bottom: 25px" type="text" name="slug" placeholder="slug">
-    <br>
     <input type="submit" value="oluştur">
 </form>
 </div>
@@ -26,3 +24,13 @@
 <div style="display: flex; justify-content: center;">
 {{item.links|raw}}
 </div>
+
+<style>
+    .pagination{
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+    list-style: none;
+    }
+
+</style>

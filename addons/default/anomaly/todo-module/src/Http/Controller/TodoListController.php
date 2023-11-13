@@ -20,6 +20,7 @@ class TodoListController extends PublicController
     }
     public function create(Request $request)
     {
+        $request["slug"] = rand(2, 999999);
         TodoModel::create($request->all());
         return redirect()->route("todo::index");
     }
